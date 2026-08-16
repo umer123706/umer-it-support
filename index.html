@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Professional remote IT support for small businesses. Windows, Linux, networking, troubleshooting, monitoring, QA, and technical documentation.">
   <title>Umer IT Support | Remote IT Support for Small Businesses</title>
+
   <style>
     :root {
       --navy:#0b1220;
@@ -19,332 +20,1508 @@
       --shadow:0 14px 40px rgba(15,23,42,.08);
       --radius:18px;
     }
-    * { box-sizing:border-box; margin:0; padding:0; }
-    html { scroll-behavior:smooth; }
-    body { font-family:Inter,Segoe UI,Arial,sans-serif; color:var(--text); background:var(--white); line-height:1.6; }
-    a { color:inherit; text-decoration:none; }
-    .container { width:min(1120px,92%); margin:auto; }
-    .nav { position:sticky; top:0; z-index:10; background:rgba(255,255,255,.95); backdrop-filter:blur(10px); border-bottom:1px solid var(--border); }
-    .nav-inner { height:72px; display:flex; align-items:center; justify-content:space-between; }
-    .logo { font-weight:800; font-size:20px; color:var(--navy); }
-    .logo span { color:var(--blue); }
-    .nav-links { display:flex; gap:26px; align-items:center; font-size:14px; font-weight:600; }
-    .nav-links a:hover { color:var(--blue); }
-    .menu { display:none; border:0; background:none; font-size:26px; }
-    .btn { display:inline-flex; align-items:center; justify-content:center; gap:8px; padding:13px 20px; border-radius:10px; font-weight:700; border:1px solid transparent; cursor:pointer; transition:.2s; }
-    .btn-primary { background:var(--blue); color:white; }
-    .btn-primary:hover { background:var(--blue2); transform:translateY(-1px); }
-    .btn-light { background:white; color:var(--navy); border-color:var(--border); }
-    .hero { background:linear-gradient(135deg,#eff6ff 0%,#fff 58%,#f8fafc 100%); padding:90px 0 80px; }
-    .hero-grid { display:grid; grid-template-columns:1.15fr .85fr; gap:60px; align-items:center; }
-    .eyebrow { display:inline-block; background:#dbeafe; color:#1d4ed8; padding:7px 12px; border-radius:999px; font-size:13px; font-weight:800; margin-bottom:20px; }
-    h1 { font-size:clamp(42px,6vw,66px); line-height:1.05; letter-spacing:-2px; color:var(--navy); margin-bottom:22px; }
-    .hero p { font-size:19px; color:var(--muted); max-width:680px; margin-bottom:30px; }
-    .actions { display:flex; gap:12px; flex-wrap:wrap; }
-    .trust { display:flex; gap:22px; flex-wrap:wrap; margin-top:28px; color:#475569; font-size:14px; font-weight:600; }
-    .hero-card { background:var(--navy); color:white; border-radius:24px; padding:32px; box-shadow:var(--shadow); }
-    .hero-card h3 { font-size:24px; margin-bottom:12px; }
-    .hero-card p { color:#cbd5e1; font-size:15px; margin-bottom:22px; }
-    .check { display:flex; gap:10px; margin:13px 0; align-items:flex-start; }
-    .check b { color:#93c5fd; }
-    section { padding:84px 0; }
-    .section-head { max-width:700px; margin-bottom:42px; }
-    .section-head h2 { font-size:38px; line-height:1.15; letter-spacing:-1px; margin-bottom:12px; color:var(--navy); }
-    .section-head p { color:var(--muted); font-size:17px; }
-    .services { background:var(--bg); }
-    .grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
-    .card { background:white; border:1px solid var(--border); border-radius:var(--radius); padding:26px; box-shadow:0 8px 25px rgba(15,23,42,.04); }
-    .icon { width:46px; height:46px; border-radius:12px; display:grid; place-items:center; background:#eff6ff; color:var(--blue); font-size:22px; margin-bottom:18px; }
-    .card h3 { font-size:19px; margin-bottom:8px; }
-    .card p { color:var(--muted); font-size:15px; }
-    .about-grid { display:grid; grid-template-columns:.9fr 1.1fr; gap:50px; align-items:center; }
-    .about-box { background:var(--navy); color:white; border-radius:24px; padding:34px; }
-    .about-box .big { font-size:56px; font-weight:900; line-height:1; }
-    .about-box p { color:#cbd5e1; margin-top:12px; }
-    .bullets { display:grid; gap:16px; margin-top:24px; }
-    .bullet { display:flex; gap:12px; }
-    .bullet span { color:var(--success); font-weight:900; }
-    .process { background:var(--bg); }
-    .step { position:relative; }
-    .number { width:38px; height:38px; border-radius:50%; background:var(--blue); color:white; display:grid; place-items:center; font-weight:800; margin-bottom:16px; }
-    .portfolio .card { min-height:205px; }
-    .tag { display:inline-block; padding:5px 9px; border-radius:999px; background:#f1f5f9; color:#475569; font-size:12px; font-weight:700; margin-bottom:14px; }
-    .pricing { background:var(--bg); }
-    .price-card { position:relative; }
-    .price { font-size:36px; font-weight:900; color:var(--navy); margin:14px 0 5px; }
-    .price small { font-size:14px; color:var(--muted); font-weight:500; }
-    .price-list { list-style:none; margin:22px 0; display:grid; gap:10px; color:#475569; font-size:14px; }
-    .price-list li:before { content:"✓"; color:var(--success); font-weight:900; margin-right:9px; }
-    .featured { border:2px solid var(--blue); }
-    .badge { position:absolute; right:18px; top:18px; background:var(--blue); color:white; font-size:11px; padding:5px 9px; border-radius:999px; font-weight:800; }
-    .cta { background:var(--navy); color:white; }
-    .cta h2 { color:white; font-size:40px; line-height:1.15; margin-bottom:14px; }
-    .cta p { color:#cbd5e1; max-width:650px; margin-bottom:25px; }
-    .contact-grid { display:grid; grid-template-columns:.8fr 1.2fr; gap:45px; }
-    .contact-info { display:grid; gap:18px; }
-    .contact-item { padding:18px; background:var(--bg); border-radius:14px; border:1px solid var(--border); }
-    .contact-item strong { display:block; margin-bottom:4px; }
-    .contact-item span { color:var(--muted); font-size:14px; }
-    form { display:grid; gap:15px; }
-    input, textarea, select { width:100%; padding:14px 15px; border:1px solid var(--border); border-radius:10px; font:inherit; outline:none; background:white; }
-    input:focus,textarea:focus,select:focus { border-color:#93c5fd; box-shadow:0 0 0 3px #dbeafe; }
-    textarea { min-height:145px; resize:vertical; }
-    footer { background:#070d18; color:#94a3b8; padding:28px 0; }
-    .footer-inner { display:flex; justify-content:space-between; gap:20px; flex-wrap:wrap; font-size:13px; }
-    .footer-inner strong { color:white; }
-    .notice { display:none; margin-top:12px; padding:12px; border-radius:10px; background:#dcfce7; color:#166534; font-size:14px; }
-    @media(max-width:850px){
-      .hero-grid,.about-grid,.contact-grid { grid-template-columns:1fr; }
-      .grid { grid-template-columns:repeat(2,1fr); }
-      .nav-links { display:none; position:absolute; top:72px; left:0; right:0; background:white; padding:20px; border-bottom:1px solid var(--border); flex-direction:column; }
-      .nav-links.open { display:flex; }
-      .menu { display:block; }
+
+    * {
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
     }
-    @media(max-width:560px){
-      .grid { grid-template-columns:1fr; }
-      .hero { padding:60px 0; }
-      section { padding:62px 0; }
-      h1 { letter-spacing:-1px; }
-      .section-head h2,.cta h2 { font-size:31px; }
+
+    html {
+      scroll-behavior:smooth;
+    }
+
+    body {
+      font-family:Inter,Segoe UI,Arial,sans-serif;
+      color:var(--text);
+      background:var(--white);
+      line-height:1.6;
+    }
+
+    a {
+      color:inherit;
+      text-decoration:none;
+    }
+
+    .container {
+      width:min(1120px,92%);
+      margin:auto;
+    }
+
+    .nav {
+      position:sticky;
+      top:0;
+      z-index:10;
+      background:rgba(255,255,255,.95);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid var(--border);
+    }
+
+    .nav-inner {
+      height:72px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    .logo {
+      font-weight:800;
+      font-size:20px;
+      color:var(--navy);
+    }
+
+    .logo span {
+      color:var(--blue);
+    }
+
+    .nav-links {
+      display:flex;
+      gap:26px;
+      align-items:center;
+      font-size:14px;
+      font-weight:600;
+    }
+
+    .nav-links a:hover {
+      color:var(--blue);
+    }
+
+    .menu {
+      display:none;
+      border:0;
+      background:none;
+      font-size:26px;
+    }
+
+    .btn {
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      padding:13px 20px;
+      border-radius:10px;
+      font-weight:700;
+      border:1px solid transparent;
+      cursor:pointer;
+      transition:.2s;
+    }
+
+    .btn-primary {
+      background:var(--blue);
+      color:white;
+    }
+
+    .btn-primary:hover {
+      background:var(--blue2);
+      transform:translateY(-1px);
+    }
+
+    .btn-light {
+      background:white;
+      color:var(--navy);
+      border-color:var(--border);
+    }
+
+    .hero {
+      background:linear-gradient(
+        135deg,
+        #eff6ff 0%,
+        #fff 58%,
+        #f8fafc 100%
+      );
+      padding:90px 0 80px;
+    }
+
+    .hero-grid {
+      display:grid;
+      grid-template-columns:1.15fr .85fr;
+      gap:60px;
+      align-items:center;
+    }
+
+    .eyebrow {
+      display:inline-block;
+      background:#dbeafe;
+      color:#1d4ed8;
+      padding:7px 12px;
+      border-radius:999px;
+      font-size:13px;
+      font-weight:800;
+      margin-bottom:20px;
+    }
+
+    h1 {
+      font-size:clamp(42px,6vw,66px);
+      line-height:1.05;
+      letter-spacing:-2px;
+      color:var(--navy);
+      margin-bottom:22px;
+    }
+
+    .hero p {
+      font-size:19px;
+      color:var(--muted);
+      max-width:680px;
+      margin-bottom:30px;
+    }
+
+    .actions {
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    .trust {
+      display:flex;
+      gap:22px;
+      flex-wrap:wrap;
+      margin-top:28px;
+      color:#475569;
+      font-size:14px;
+      font-weight:600;
+    }
+
+    .hero-card {
+      background:var(--navy);
+      color:white;
+      border-radius:24px;
+      padding:32px;
+      box-shadow:var(--shadow);
+    }
+
+    .hero-card h3 {
+      font-size:24px;
+      margin-bottom:12px;
+    }
+
+    .hero-card p {
+      color:#cbd5e1;
+      font-size:15px;
+      margin-bottom:22px;
+    }
+
+    .check {
+      display:flex;
+      gap:10px;
+      margin:13px 0;
+      align-items:flex-start;
+    }
+
+    .check b {
+      color:#93c5fd;
+    }
+
+    section {
+      padding:84px 0;
+    }
+
+    .section-head {
+      max-width:700px;
+      margin-bottom:42px;
+    }
+
+    .section-head h2 {
+      font-size:38px;
+      line-height:1.15;
+      letter-spacing:-1px;
+      margin-bottom:12px;
+      color:var(--navy);
+    }
+
+    .section-head p {
+      color:var(--muted);
+      font-size:17px;
+    }
+
+    .services {
+      background:var(--bg);
+    }
+
+    .grid {
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:20px;
+    }
+
+    .card {
+      background:white;
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      padding:26px;
+      box-shadow:0 8px 25px rgba(15,23,42,.04);
+    }
+
+    .icon {
+      width:46px;
+      height:46px;
+      border-radius:12px;
+      display:grid;
+      place-items:center;
+      background:#eff6ff;
+      color:var(--blue);
+      font-size:22px;
+      margin-bottom:18px;
+    }
+
+    .card h3 {
+      font-size:19px;
+      margin-bottom:8px;
+    }
+
+    .card p {
+      color:var(--muted);
+      font-size:15px;
+    }
+
+    .about-grid {
+      display:grid;
+      grid-template-columns:.9fr 1.1fr;
+      gap:50px;
+      align-items:center;
+    }
+
+    .about-box {
+      background:var(--navy);
+      color:white;
+      border-radius:24px;
+      padding:34px;
+    }
+
+    .about-box .big {
+      font-size:56px;
+      font-weight:900;
+      line-height:1;
+    }
+
+    .about-box p {
+      color:#cbd5e1;
+      margin-top:12px;
+    }
+
+    .bullets {
+      display:grid;
+      gap:16px;
+      margin-top:24px;
+    }
+
+    .bullet {
+      display:flex;
+      gap:12px;
+    }
+
+    .bullet span {
+      color:var(--success);
+      font-weight:900;
+    }
+
+    .process {
+      background:var(--bg);
+    }
+
+    .number {
+      width:38px;
+      height:38px;
+      border-radius:50%;
+      background:var(--blue);
+      color:white;
+      display:grid;
+      place-items:center;
+      font-weight:800;
+      margin-bottom:16px;
+    }
+
+    .portfolio .card {
+      min-height:205px;
+    }
+
+    .tag {
+      display:inline-block;
+      padding:5px 9px;
+      border-radius:999px;
+      background:#f1f5f9;
+      color:#475569;
+      font-size:12px;
+      font-weight:700;
+      margin-bottom:14px;
+    }
+
+    .pricing {
+      background:var(--bg);
+    }
+
+    .price-card {
+      position:relative;
+    }
+
+    .price {
+      font-size:36px;
+      font-weight:900;
+      color:var(--navy);
+      margin:14px 0 5px;
+    }
+
+    .price small {
+      font-size:14px;
+      color:var(--muted);
+      font-weight:500;
+    }
+
+    .price-list {
+      list-style:none;
+      margin:22px 0;
+      display:grid;
+      gap:10px;
+      color:#475569;
+      font-size:14px;
+    }
+
+    .price-list li:before {
+      content:"✓";
+      color:var(--success);
+      font-weight:900;
+      margin-right:9px;
+    }
+
+    .featured {
+      border:2px solid var(--blue);
+    }
+
+    .badge {
+      position:absolute;
+      right:18px;
+      top:18px;
+      background:var(--blue);
+      color:white;
+      font-size:11px;
+      padding:5px 9px;
+      border-radius:999px;
+      font-weight:800;
+    }
+
+    .cta {
+      background:var(--navy);
+      color:white;
+    }
+
+    .cta h2 {
+      color:white;
+      font-size:40px;
+      line-height:1.15;
+      margin-bottom:14px;
+    }
+
+    .cta p {
+      color:#cbd5e1;
+      max-width:650px;
+      margin-bottom:25px;
+    }
+
+    .contact-grid {
+      display:grid;
+      grid-template-columns:.8fr 1.2fr;
+      gap:45px;
+    }
+
+    .contact-info {
+      display:grid;
+      gap:18px;
+    }
+
+    .contact-item {
+      padding:18px;
+      background:var(--bg);
+      border-radius:14px;
+      border:1px solid var(--border);
+    }
+
+    .contact-item strong {
+      display:block;
+      margin-bottom:4px;
+    }
+
+    .contact-item span {
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .contact-item a {
+      color:var(--blue);
+    }
+
+    form {
+      display:grid;
+      gap:15px;
+    }
+
+    input,
+    textarea,
+    select {
+      width:100%;
+      padding:14px 15px;
+      border:1px solid var(--border);
+      border-radius:10px;
+      font:inherit;
+      outline:none;
+      background:white;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+      border-color:#93c5fd;
+      box-shadow:0 0 0 3px #dbeafe;
+    }
+
+    textarea {
+      min-height:145px;
+      resize:vertical;
+    }
+
+    footer {
+      background:#070d18;
+      color:#94a3b8;
+      padding:28px 0;
+    }
+
+    .footer-inner {
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      flex-wrap:wrap;
+      font-size:13px;
+    }
+
+    .footer-inner strong {
+      color:white;
+    }
+
+    .notice {
+      display:none;
+      margin-top:12px;
+      padding:12px;
+      border-radius:10px;
+      background:#dcfce7;
+      color:#166534;
+      font-size:14px;
+    }
+
+    @media(max-width:850px) {
+
+      .hero-grid,
+      .about-grid,
+      .contact-grid {
+        grid-template-columns:1fr;
+      }
+
+      .grid {
+        grid-template-columns:repeat(2,1fr);
+      }
+
+      .nav-links {
+        display:none;
+        position:absolute;
+        top:72px;
+        left:0;
+        right:0;
+        background:white;
+        padding:20px;
+        border-bottom:1px solid var(--border);
+        flex-direction:column;
+      }
+
+      .nav-links.open {
+        display:flex;
+      }
+
+      .menu {
+        display:block;
+      }
+    }
+
+    @media(max-width:560px) {
+
+      .grid {
+        grid-template-columns:1fr;
+      }
+
+      .hero {
+        padding:60px 0;
+      }
+
+      section {
+        padding:62px 0;
+      }
+
+      h1 {
+        letter-spacing:-1px;
+      }
+
+      .section-head h2,
+      .cta h2 {
+        font-size:31px;
+      }
     }
   </style>
 </head>
+
 <body>
 
 <nav class="nav">
   <div class="container nav-inner">
-    <a class="logo" href="#home">Umer<span>IT</span> Support</a>
-    <button class="menu" aria-label="Open menu" onclick="toggleMenu()">☰</button>
+
+    <a class="logo" href="#home">
+      Umer<span>IT</span> Support
+    </a>
+
+    <button class="menu" aria-label="Open menu" onclick="toggleMenu()">
+      ☰
+    </button>
+
     <div class="nav-links" id="navLinks">
+
       <a href="#services">Services</a>
       <a href="#about">About</a>
       <a href="#portfolio">Portfolio</a>
       <a href="#pricing">Pricing</a>
       <a href="#contact">Contact</a>
-      <a class="btn btn-primary" href="#contact">Get Support</a>
+
+      <a class="btn btn-primary" href="#contact">
+        Get Support
+      </a>
+
     </div>
   </div>
 </nav>
 
+
 <main>
+
+<!-- HERO -->
+
 <section class="hero" id="home">
+
   <div class="container hero-grid">
+
     <div>
-      <span class="eyebrow">REMOTE IT SUPPORT • WORLDWIDE</span>
-      <h1>Reliable IT support without the cost of a full-time technician.</h1>
-      <p>I help small businesses troubleshoot Windows, Linux, networking, software, monitoring, and documentation issues remotely — quickly, clearly, and professionally.</p>
+
+      <span class="eyebrow">
+        REMOTE IT SUPPORT • WORLDWIDE
+      </span>
+
+      <h1>
+        Reliable IT support without the cost of a full-time technician.
+      </h1>
+
+      <p>
+        I help small businesses troubleshoot Windows, Linux,
+        networking, software, monitoring, and documentation issues
+        remotely — quickly, clearly, and professionally.
+      </p>
+
       <div class="actions">
-        <a class="btn btn-primary" href="#contact">Request IT Support →</a>
-        <a class="btn btn-light" href="#services">Explore Services</a>
+
+        <a class="btn btn-primary" href="#contact">
+          Request IT Support →
+        </a>
+
+        <a class="btn btn-light" href="#services">
+          Explore Services
+        </a>
+
       </div>
+
       <div class="trust">
+
         <span>✓ Remote Support</span>
+
         <span>✓ Practical Troubleshooting</span>
+
         <span>✓ Clear Documentation</span>
+
       </div>
+
     </div>
+
+
     <div class="hero-card">
-      <h3>Need an extra pair of IT hands?</h3>
-      <p>Get practical remote assistance for everyday technical problems, system checks, troubleshooting, and documentation.</p>
-      <div class="check"><b>✓</b><span>Windows & Linux troubleshooting</span></div>
-      <div class="check"><b>✓</b><span>Network and connectivity issues</span></div>
-      <div class="check"><b>✓</b><span>System monitoring & log review</span></div>
-      <div class="check"><b>✓</b><span>Technical documentation & SOPs</span></div>
-      <a class="btn btn-primary" style="margin-top:18px;width:100%" href="#contact">Talk About Your IT Issue</a>
+
+      <h3>
+        Need an extra pair of IT hands?
+      </h3>
+
+      <p>
+        Get practical remote assistance for everyday technical
+        problems, system checks, troubleshooting, and documentation.
+      </p>
+
+      <div class="check">
+        <b>✓</b>
+        <span>Windows & Linux troubleshooting</span>
+      </div>
+
+      <div class="check">
+        <b>✓</b>
+        <span>Network and connectivity issues</span>
+      </div>
+
+      <div class="check">
+        <b>✓</b>
+        <span>System monitoring & log review</span>
+      </div>
+
+      <div class="check">
+        <b>✓</b>
+        <span>Technical documentation & SOPs</span>
+      </div>
+
+      <a
+        class="btn btn-primary"
+        style="margin-top:18px;width:100%"
+        href="#contact"
+      >
+        Talk About Your IT Issue
+      </a>
+
     </div>
+
   </div>
+
 </section>
+
+
+<!-- SERVICES -->
 
 <section class="services" id="services">
+
   <div class="container">
+
     <div class="section-head">
-      <h2>IT services built around real business problems.</h2>
-      <p>Flexible remote support for businesses that need reliable technical help without adding another full-time employee.</p>
+
+      <h2>
+        IT services built around real business problems.
+      </h2>
+
+      <p>
+        Flexible remote support for businesses that need reliable
+        technical help without adding another full-time employee.
+      </p>
+
     </div>
+
+
     <div class="grid">
-      <div class="card"><div class="icon">🖥️</div><h3>Remote IT Support</h3><p>Remote troubleshooting for Windows, applications, devices, and everyday technical issues.</p></div>
-      <div class="card"><div class="icon">🐧</div><h3>Linux Support</h3><p>Linux troubleshooting, service checks, logs, disk space, connectivity, and system health investigation.</p></div>
-      <div class="card"><div class="icon">🌐</div><h3>Network Troubleshooting</h3><p>Investigate connectivity, DNS, Wi-Fi, Ethernet, device communication, and network-related problems.</p></div>
-      <div class="card"><div class="icon">📊</div><h3>System Monitoring</h3><p>Review alerts, logs, system health, performance indicators, and recurring technical issues.</p></div>
-      <div class="card"><div class="icon">📋</div><h3>Technical Documentation</h3><p>Create clear SOPs, troubleshooting guides, knowledge-base articles, and technical reports.</p></div>
-      <div class="card"><div class="icon">🧪</div><h3>QA & Testing</h3><p>Test applications and workflows, document defects, reproduce issues, and provide clear findings.</p></div>
+
+      <div class="card">
+        <div class="icon">🖥️</div>
+        <h3>Remote IT Support</h3>
+        <p>
+          Remote troubleshooting for Windows, applications,
+          devices, and everyday technical issues.
+        </p>
+      </div>
+
+
+      <div class="card">
+        <div class="icon">🐧</div>
+        <h3>Linux Support</h3>
+        <p>
+          Linux troubleshooting, service checks, logs, disk space,
+          connectivity, and system health investigation.
+        </p>
+      </div>
+
+
+      <div class="card">
+        <div class="icon">🌐</div>
+        <h3>Network Troubleshooting</h3>
+        <p>
+          Investigate connectivity, DNS, Wi-Fi, Ethernet,
+          device communication, and network-related problems.
+        </p>
+      </div>
+
+
+      <div class="card">
+        <div class="icon">📊</div>
+        <h3>System Monitoring</h3>
+        <p>
+          Review alerts, logs, system health, performance
+          indicators, and recurring technical issues.
+        </p>
+      </div>
+
+
+      <div class="card">
+        <div class="icon">📋</div>
+        <h3>Technical Documentation</h3>
+        <p>
+          Create clear SOPs, troubleshooting guides,
+          knowledge-base articles, and technical reports.
+        </p>
+      </div>
+
+
+      <div class="card">
+        <div class="icon">🧪</div>
+        <h3>QA & Testing</h3>
+        <p>
+          Test applications and workflows, document defects,
+          reproduce issues, and provide clear findings.
+        </p>
+      </div>
+
     </div>
+
   </div>
+
 </section>
+
+
+<!-- ABOUT -->
 
 <section id="about">
+
   <div class="container about-grid">
+
     <div class="about-box">
-      <div class="big">L2</div>
-      <h3 style="font-size:24px;margin-top:8px">Technical Support Experience</h3>
-      <p>Practical experience investigating technical issues, reviewing logs, monitoring systems, escalating complex problems, and documenting resolutions.</p>
+
+      <div class="big">
+        L2
+      </div>
+
+      <h3 style="font-size:24px;margin-top:8px">
+        Technical Support Experience
+      </h3>
+
+      <p>
+        Practical experience investigating technical issues,
+        reviewing logs, monitoring systems, escalating complex
+        problems, and documenting resolutions.
+      </p>
+
     </div>
+
+
     <div>
+
       <div class="section-head" style="margin-bottom:0">
-        <h2>A technical partner you can call when something isn't working.</h2>
-        <p>My approach is simple: understand the problem, investigate the evidence, communicate clearly, resolve what I can, and document the result.</p>
+
+        <h2>
+          A technical partner you can call when something isn't working.
+        </h2>
+
+        <p>
+          My approach is simple: understand the problem,
+          investigate the evidence, communicate clearly,
+          resolve what I can, and document the result.
+        </p>
+
       </div>
+
+
       <div class="bullets">
-        <div class="bullet"><span>✓</span><div><strong>Structured troubleshooting</strong><br>Work from symptoms and evidence rather than guessing.</div></div>
-        <div class="bullet"><span>✓</span><div><strong>Clear communication</strong><br>Technical findings explained in business-friendly language.</div></div>
-        <div class="bullet"><span>✓</span><div><strong>Escalation when needed</strong><br>Complex issues can be documented clearly for higher-level engineering teams.</div></div>
-        <div class="bullet"><span>✓</span><div><strong>Documentation included</strong><br>Useful procedures and notes can be created so the same issue is easier to handle next time.</div></div>
+
+        <div class="bullet">
+          <span>✓</span>
+          <div>
+            <strong>Structured troubleshooting</strong>
+            <br>
+            Work from symptoms and evidence rather than guessing.
+          </div>
+        </div>
+
+
+        <div class="bullet">
+          <span>✓</span>
+          <div>
+            <strong>Clear communication</strong>
+            <br>
+            Technical findings explained in business-friendly language.
+          </div>
+        </div>
+
+
+        <div class="bullet">
+          <span>✓</span>
+          <div>
+            <strong>Escalation when needed</strong>
+            <br>
+            Complex issues can be documented clearly for higher-level
+            engineering teams.
+          </div>
+        </div>
+
+
+        <div class="bullet">
+          <span>✓</span>
+          <div>
+            <strong>Documentation included</strong>
+            <br>
+            Useful procedures and notes can be created so the same
+            issue is easier to handle next time.
+          </div>
+        </div>
+
       </div>
+
     </div>
+
   </div>
+
 </section>
+
+
+<!-- PROCESS -->
 
 <section class="process">
+
   <div class="container">
+
     <div class="section-head">
-      <h2>Simple process. No unnecessary complexity.</h2>
-      <p>Whether you need one troubleshooting session or ongoing support, the workflow stays straightforward.</p>
+
+      <h2>
+        Simple process. No unnecessary complexity.
+      </h2>
+
+      <p>
+        Whether you need one troubleshooting session or ongoing
+        support, the workflow stays straightforward.
+      </p>
+
     </div>
+
+
     <div class="grid">
-      <div class="card step"><div class="number">1</div><h3>Tell me the problem</h3><p>Share the symptoms, error, device, application, or business impact.</p></div>
-      <div class="card step"><div class="number">2</div><h3>Remote diagnosis</h3><p>We investigate the issue using the information and remote tools available for the task.</p></div>
-      <div class="card step"><div class="number">3</div><h3>Resolve & document</h3><p>Fix the issue when possible and provide clear notes or recommendations.</p></div>
+
+      <div class="card">
+
+        <div class="number">
+          1
+        </div>
+
+        <h3>
+          Tell me the problem
+        </h3>
+
+        <p>
+          Share the symptoms, error, device, application,
+          or business impact.
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="number">
+          2
+        </div>
+
+        <h3>
+          Remote diagnosis
+        </h3>
+
+        <p>
+          We investigate the issue using the information
+          and remote tools available for the task.
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="number">
+          3
+        </div>
+
+        <h3>
+          Resolve & document
+        </h3>
+
+        <p>
+          Fix the issue when possible and provide clear
+          notes or recommendations.
+        </p>
+
+      </div>
+
     </div>
+
   </div>
+
 </section>
+
+
+<!-- PORTFOLIO -->
 
 <section class="portfolio" id="portfolio">
+
   <div class="container">
+
     <div class="section-head">
-      <h2>Sample technical work.</h2>
-      <p>Examples of the type of documentation and troubleshooting deliverables I can create for clients.</p>
+
+      <h2>
+        Sample technical work.
+      </h2>
+
+      <p>
+        Examples of the type of documentation and troubleshooting
+        deliverables I can create for clients.
+      </p>
+
     </div>
+
+
     <div class="grid">
-      <div class="card"><span class="tag">LINUX</span><h3>Linux Troubleshooting Guide</h3><p>Step-by-step checks for disk usage, services, networking, logs, and common system problems.</p></div>
-      <div class="card"><span class="tag">NETWORKING</span><h3>Network Troubleshooting SOP</h3><p>A practical workflow for diagnosing connectivity, interface, DNS, and device communication issues.</p></div>
-      <div class="card"><span class="tag">WINDOWS</span><h3>Windows Health Check</h3><p>A structured checklist and report covering disk space, services, performance, updates, and common faults.</p></div>
-      <div class="card"><span class="tag">DOCUMENTATION</span><h3>IT Support SOP</h3><p>Clear procedures designed to help teams handle recurring technical issues consistently.</p></div>
-      <div class="card"><span class="tag">MONITORING</span><h3>System Monitoring Report</h3><p>Concise reporting of alerts, system status, recurring incidents, and recommended actions.</p></div>
-      <div class="card"><span class="tag">QA</span><h3>QA Test & Defect Report</h3><p>Structured test cases, reproduction steps, expected versus actual results, and issue summaries.</p></div>
+
+      <div class="card">
+
+        <span class="tag">
+          LINUX
+        </span>
+
+        <h3>
+          Linux Troubleshooting Guide
+        </h3>
+
+        <p>
+          Step-by-step checks for disk usage, services,
+          networking, logs, and common system problems.
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <span class="tag">
+          NETWORKING
+        </span>
+
+        <h3>
+          Network Troubleshooting SOP
+        </h3>
+
+        <p>
+          A practical workflow for diagnosing connectivity,
+          interface, DNS, and device communication issues.
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <span class="tag">
+          WINDOWS
+        </span>
+
+        <h3>
+          Windows Health Check
+        </h3>
+
+        <p>
+          A structured checklist and report covering disk space,
+          services, performance, updates, and common faults.
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <span class="tag">
+          DOCUMENTATION
+        </span>
+
+        <h3>
+          IT Support SOP
+        </h3>
+
+        <p>
+          Clear procedures designed to help teams handle
+          recurring technical issues consistently.
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <span class="tag">
+          MONITORING
+        </span>
+
+        <h3>
+          System Monitoring Report
+        </h3>
+
+        <p>
+          Concise reporting of alerts, system status,
+          recurring incidents, and recommended actions.
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <span class="tag">
+          QA
+        </span>
+
+        <h3>
+          QA Test & Defect Report
+        </h3>
+
+        <p>
+          Structured test cases, reproduction steps,
+          expected versus actual results, and issue summaries.
+        </p>
+
+      </div>
+
     </div>
+
   </div>
+
 </section>
+
+
+<!-- PRICING -->
 
 <section class="pricing" id="pricing">
+
   <div class="container">
+
     <div class="section-head">
-      <h2>Simple starting options.</h2>
-      <p>Use these as starting points. Larger or ongoing support requirements can be quoted based on scope.</p>
+
+      <h2>
+        Simple starting options.
+      </h2>
+
+      <p>
+        Use these as starting points. Larger or ongoing support
+        requirements can be quoted based on scope.
+      </p>
+
     </div>
+
+
     <div class="grid">
+
       <div class="card price-card">
-        <h3>Quick Support</h3>
-        <div class="price">$30 <small>/ starting</small></div>
-        <p>For a focused technical issue.</p>
+
+        <h3>
+          Quick Support
+        </h3>
+
+        <div class="price">
+          $30
+          <small>/ starting</small>
+        </div>
+
+        <p>
+          For a focused technical issue.
+        </p>
+
         <ul class="price-list">
-          <li>Remote troubleshooting</li><li>Issue investigation</li><li>Basic recommendations</li><li>Summary of findings</li>
+          <li>Remote troubleshooting</li>
+          <li>Issue investigation</li>
+          <li>Basic recommendations</li>
+          <li>Summary of findings</li>
         </ul>
-        <a class="btn btn-light" href="#contact">Request Support</a>
+
+        <a class="btn btn-light" href="#contact">
+          Request Support
+        </a>
+
       </div>
+
+
       <div class="card price-card featured">
-        <span class="badge">POPULAR</span>
-        <h3>Technical Service</h3>
-        <div class="price">$50 <small>/ starting</small></div>
-        <p>For troubleshooting or documentation work.</p>
+
+        <span class="badge">
+          POPULAR
+        </span>
+
+        <h3>
+          Technical Service
+        </h3>
+
+        <div class="price">
+          $50
+          <small>/ starting</small>
+        </div>
+
+        <p>
+          For troubleshooting or documentation work.
+        </p>
+
         <ul class="price-list">
-          <li>Technical troubleshooting</li><li>Network/Linux/Windows support</li><li>Documentation or SOP</li><li>Clear final report</li>
+          <li>Technical troubleshooting</li>
+          <li>Network/Linux/Windows support</li>
+          <li>Documentation or SOP</li>
+          <li>Clear final report</li>
         </ul>
-        <a class="btn btn-primary" href="#contact">Get a Quote</a>
+
+        <a class="btn btn-primary" href="#contact">
+          Get a Quote
+        </a>
+
       </div>
+
+
       <div class="card price-card">
-        <h3>Ongoing Support</h3>
-        <div class="price">$100+ <small>/ month</small></div>
-        <p>For businesses needing recurring assistance.</p>
+
+        <h3>
+          Ongoing Support
+        </h3>
+
+        <div class="price">
+          $100+
+          <small>/ month</small>
+        </div>
+
+        <p>
+          For businesses needing recurring assistance.
+        </p>
+
         <ul class="price-list">
-          <li>Remote support</li><li>Recurring system checks</li><li>Monitoring assistance</li><li>Monthly support scope</li>
+          <li>Remote support</li>
+          <li>Recurring system checks</li>
+          <li>Monitoring assistance</li>
+          <li>Monthly support scope</li>
         </ul>
-        <a class="btn btn-light" href="#contact">Discuss Your Needs</a>
+
+        <a class="btn btn-light" href="#contact">
+          Discuss Your Needs
+        </a>
+
       </div>
+
     </div>
+
   </div>
+
 </section>
+
+
+<!-- CTA -->
 
 <section class="cta">
+
   <div class="container">
-    <h2>Have an IT problem? Let's find the cause.</h2>
-    <p>Tell me what's happening and what your business needs. I'll help determine the most practical next step.</p>
-    <a class="btn btn-primary" href="#contact">Request IT Support →</a>
+
+    <h2>
+      Have an IT problem? Let's find the cause.
+    </h2>
+
+    <p>
+      Tell me what's happening and what your business needs.
+      I'll help determine the most practical next step.
+    </p>
+
+    <a class="btn btn-primary" href="#contact">
+      Request IT Support →
+    </a>
+
   </div>
+
 </section>
+
+
+<!-- CONTACT -->
 
 <section id="contact">
+
   <div class="container contact-grid">
+
     <div>
+
       <div class="section-head">
-        <h2>Let's talk about your IT needs.</h2>
-        <p>Use the form to describe your issue or the type of support you're looking for.</p>
+
+        <h2>
+          Let's talk about your IT needs.
+        </h2>
+
+        <p>
+          Use the form to describe your issue or the type
+          of support you're looking for.
+        </p>
+
       </div>
+
+
       <div class="contact-info">
-        <div class="contact-item"><strong>📧 Email</strong><span>Umerlatif919@gmail.com</span></div>
-        <div class="contact-item"><strong>🌍 Service Area</strong><span>Remote / Worldwide</span></div>
-        <div class="contact-item"><strong>💼 Services</strong><span>IT Support • Linux • Windows • Networking • Documentation</span></div>
+
+        <div class="contact-item">
+
+          <strong>
+            📧 Email
+          </strong>
+
+          <span>
+            <a href="mailto:umerlatif919@gmail.com">
+              umerlatif919@gmail.com
+            </a>
+          </span>
+
+        </div>
+
+
+        <div class="contact-item">
+
+          <strong>
+            🌍 Service Area
+          </strong>
+
+          <span>
+            Remote / Worldwide
+          </span>
+
+        </div>
+
+
+        <div class="contact-item">
+
+          <strong>
+            💼 Services
+          </strong>
+
+          <span>
+            IT Support • Linux • Windows • Networking • Documentation
+          </span>
+
+        </div>
+
       </div>
+
     </div>
+
+
     <div class="card">
+
       <form id="contactForm">
-        <input id="name" type="text" placeholder="Your name" required>
-        <input id="email" type="email" placeholder="Business email" required>
-        <input id="company" type="text" placeholder="Company name">
+
+        <input
+          id="name"
+          type="text"
+          placeholder="Your name"
+          required
+        >
+
+        <input
+          id="email"
+          type="email"
+          placeholder="Business email"
+          required
+        >
+
+        <input
+          id="company"
+          type="text"
+          placeholder="Company name"
+        >
+
         <select id="service">
-          <option value="">What do you need help with?</option>
-          <option>Remote IT Support</option>
-          <option>Windows Troubleshooting</option>
-          <option>Linux Support</option>
-          <option>Network Troubleshooting</option>
-          <option>System Monitoring</option>
-          <option>Technical Documentation / SOP</option>
-          <option>QA / Testing</option>
-          <option>Other</option>
+
+          <option value="">
+            What do you need help with?
+          </option>
+
+          <option>
+            Remote IT Support
+          </option>
+
+          <option>
+            Windows Troubleshooting
+          </option>
+
+          <option>
+            Linux Support
+          </option>
+
+          <option>
+            Network Troubleshooting
+          </option>
+
+          <option>
+            System Monitoring
+          </option>
+
+          <option>
+            Technical Documentation / SOP
+          </option>
+
+          <option>
+            QA / Testing
+          </option>
+
+          <option>
+            Other
+          </option>
+
         </select>
-        <textarea id="message" placeholder="Briefly describe your issue or requirements..." required></textarea>
-        <button class="btn btn-primary" type="submit">Send Request</button>
-        <div class="notice" id="notice">Your email app will open with your request prepared. Replace umerlatif919@gmail.com in the HTML with your real business email first.</div>
+
+
+        <textarea
+          id="message"
+          placeholder="Briefly describe your issue or requirements..."
+          required
+        ></textarea>
+
+
+        <button
+          class="btn btn-primary"
+          type="submit"
+        >
+          Send Request
+        </button>
+
+
+        <div class="notice" id="notice">
+          Your email app will open with your request prepared.
+          Please click Send to submit your request.
+        </div>
+
       </form>
+
     </div>
+
   </div>
+
 </section>
+
 </main>
 
+
 <footer>
+
   <div class="container footer-inner">
-    <div>© <span id="year"></span> <strong>Umer IT Support</strong>. All rights reserved.</div>
-    <div>Remote IT Support • Technical Services</div>
+
+    <div>
+      © <span id="year"></span>
+      <strong>Umer IT Support</strong>.
+      All rights reserved.
+    </div>
+
+    <div>
+      Remote IT Support • Technical Services
+    </div>
+
   </div>
+
 </footer>
 
-<script>
-  function toggleMenu() {
-    document.getElementById('navLinks').classList.toggle('open');
-  }
-  document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => {
-    document.getElementById('navLinks').classList.remove('open');
-  }));
-  document.getElementById('year').textContent = new Date().getFullYear();
 
-  document.getElementById('contactForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const emailTo = 'umerlatif919@gmail.comS';
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const company = document.getElementById('company').value;
-    const service = document.getElementById('service').value || 'IT Support';
-    const message = document.getElementById('message').value;
-    const subject = encodeURIComponent('IT Support Request - ' + company);
-    const body = encodeURIComponent(
-      'Name: ' + name + '\n' +
-      'Business Email: ' + email + '\n' +
-      'Company: ' + company + '\n' +
-      'Service: ' + service + '\n\n' +
-      'Request:\n' + message
-    );
-    window.location.href = 'mailto:' + emailTo + '?subject=' + subject + '&body=' + body;
-    document.getElementById('notice').style.display = 'block';
+<script>
+
+function toggleMenu() {
+
+  document
+    .getElementById('navLinks')
+    .classList
+    .toggle('open');
+
+}
+
+
+document
+  .querySelectorAll('.nav-links a')
+  .forEach(a => {
+
+    a.addEventListener('click', () => {
+
+      document
+        .getElementById('navLinks')
+        .classList
+        .remove('open');
+
+    });
+
   });
+
+
+document.getElementById('year').textContent =
+  new Date().getFullYear();
+
+
+document
+  .getElementById('contactForm')
+  .addEventListener('submit', function(e) {
+
+    e.preventDefault();
+
+
+    /*
+      THIS IS YOUR RECEIVING EMAIL.
+    */
+
+    const emailTo =
+      'umerlatif919@gmail.com';
+
+
+    const name =
+      document.getElementById('name').value;
+
+    const email =
+      document.getElementById('email').value;
+
+    const company =
+      document.getElementById('company').value;
+
+    const service =
+      document.getElementById('service').value ||
+      'IT Support';
+
+    const message =
+      document.getElementById('message').value;
+
+
+    const subject =
+      encodeURIComponent(
+        'IT Support Request - ' + company
+      );
+
+
+    const body =
+      encodeURIComponent(
+
+        'Name: ' + name + '\n' +
+
+        'Business Email: ' + email + '\n' +
+
+        'Company: ' + company + '\n' +
+
+        'Service: ' + service + '\n\n' +
+
+        'Request:\n' + message
+
+      );
+
+
+    /*
+      Open the visitor's email application.
+    */
+
+    window.location.href =
+      'mailto:' +
+      emailTo +
+      '?subject=' +
+      subject +
+      '&body=' +
+      body;
+
+
+    document
+      .getElementById('notice')
+      .style.display = 'block';
+
+  });
+
 </script>
+
 </body>
 </html>
