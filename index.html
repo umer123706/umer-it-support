@@ -277,6 +277,101 @@
     }
     .portfolio-card{min-height:205px}
 
+
+    .resources-intro{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:25px;
+      margin-bottom:35px;
+    }
+    .resource-note{
+      max-width:420px;
+      padding:15px 18px;
+      border:1px solid #bfdbfe;
+      background:#eff6ff;
+      color:#1e3a8a;
+      border-radius:14px;
+      font-size:13px;
+    }
+    .resource-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
+    .resource-card{
+      position:relative;
+      display:flex;
+      flex-direction:column;
+      min-height:330px;
+    }
+    .resource-top{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom:16px;
+    }
+    .resource-icon{
+      width:52px;
+      height:52px;
+      display:grid;
+      place-items:center;
+      border-radius:14px;
+      background:#eff6ff;
+      font-size:25px;
+    }
+    .resource-type{
+      padding:5px 9px;
+      border-radius:999px;
+      background:#f1f5f9;
+      color:#475569;
+      font-size:10px;
+      font-weight:900;
+    }
+    .resource-card h3{font-size:20px;margin-bottom:8px}
+    .resource-card p{color:var(--muted);font-size:14px}
+    .resource-features{
+      list-style:none;
+      display:grid;
+      gap:7px;
+      margin:16px 0 20px;
+      color:#475569;
+      font-size:13px;
+    }
+    .resource-features li:before{
+      content:"✓";
+      color:var(--green);
+      font-weight:900;
+      margin-right:8px;
+    }
+    .resource-price{
+      margin-top:auto;
+      margin-bottom:14px;
+      font-size:25px;
+      font-weight:900;
+      color:var(--navy);
+    }
+    .resource-price small{
+      font-size:12px;
+      color:var(--muted);
+      font-weight:500;
+    }
+    .resource-card .btn{width:100%}
+    .resources-banner{
+      margin-top:22px;
+      padding:22px;
+      border-radius:18px;
+      background:var(--navy);
+      color:#fff;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+    }
+    .resources-banner h3{font-size:21px;margin-bottom:4px}
+    .resources-banner p{color:#cbd5e1;font-size:14px}
+
     .pricing-grid{
       display:grid;
       grid-template-columns:repeat(4,1fr);
@@ -393,10 +488,12 @@
       .nav-links.open{display:flex}
       .menu{display:block}
       .why-grid,.contact-grid,.feature-grid{grid-template-columns:1fr}
-      .portfolio-grid{grid-template-columns:repeat(2,1fr)}
+      .portfolio-grid,.resource-grid{grid-template-columns:repeat(2,1fr)}
+      .resources-intro{align-items:flex-start;flex-direction:column}
     }
     @media(max-width:560px){
-      .service-grid,.pricing-grid,.portfolio-grid{grid-template-columns:1fr}
+      .service-grid,.pricing-grid,.portfolio-grid,.resource-grid{grid-template-columns:1fr}
+      .resources-banner{align-items:flex-start;flex-direction:column}
       .hero{padding:60px 0}
       section{padding:62px 0}
       .section-head h2,.cta h2{font-size:31px}
@@ -417,6 +514,7 @@
       <a href="#services">Services</a>
       <a href="#about">About</a>
       <a href="#portfolio">Portfolio</a>
+      <a href="#resources">Resources</a>
       <a href="#pricing">Pricing</a>
       <a href="#contact">Contact</a>
       <a class="btn btn-primary" href="#contact">Get Started</a>
@@ -730,6 +828,187 @@
 </section>
 
 
+
+<section class="soft" id="resources">
+  <div class="container">
+
+    <div class="resources-intro">
+      <div class="section-head" style="margin-bottom:0">
+        <h2>Templates & Resources</h2>
+        <p>
+          Ready-to-use business and IT templates that help you solve common
+          problems faster and keep your business organized.
+        </p>
+      </div>
+
+      <div class="resource-note">
+        <strong>Digital products coming next</strong><br>
+        These cards are ready for your products. Connect each button to your
+        payment/download page when your store is ready.
+      </div>
+    </div>
+
+    <div class="resource-grid">
+
+      <div class="card resource-card">
+        <div class="resource-top">
+          <div class="resource-icon">🖥️</div>
+          <span class="resource-type">IT TEMPLATE</span>
+        </div>
+        <h3>Windows IT Health Check</h3>
+        <p>
+          A practical checklist for reviewing a Windows computer before
+          troubleshooting or escalation.
+        </p>
+        <ul class="resource-features">
+          <li>Disk space checklist</li>
+          <li>Windows updates</li>
+          <li>Services & startup checks</li>
+          <li>Performance review</li>
+        </ul>
+        <div class="resource-price">$5 <small>digital download</small></div>
+        <a class="btn btn-primary" href="#contact"
+           onclick="requestResource('Windows IT Health Check')">
+          Get This Template
+        </a>
+      </div>
+
+
+      <div class="card resource-card">
+        <div class="resource-top">
+          <div class="resource-icon">🐧</div>
+          <span class="resource-type">LINUX</span>
+        </div>
+        <h3>Linux Troubleshooting Checklist</h3>
+        <p>
+          A structured checklist for common Linux health, disk, service,
+          networking, and log investigations.
+        </p>
+        <ul class="resource-features">
+          <li>Disk & storage checks</li>
+          <li>Service status checks</li>
+          <li>Network commands</li>
+          <li>Log review checklist</li>
+        </ul>
+        <div class="resource-price">$7 <small>digital download</small></div>
+        <a class="btn btn-primary" href="#contact"
+           onclick="requestResource('Linux Troubleshooting Checklist')">
+          Get This Template
+        </a>
+      </div>
+
+
+      <div class="card resource-card">
+        <div class="resource-top">
+          <div class="resource-icon">📋</div>
+          <span class="resource-type">SOP</span>
+        </div>
+        <h3>Small Business SOP Template</h3>
+        <p>
+          A clean framework for turning repeatable business processes into
+          easy-to-follow standard operating procedures.
+        </p>
+        <ul class="resource-features">
+          <li>Purpose & scope</li>
+          <li>Required tools</li>
+          <li>Step-by-step procedure</li>
+          <li>Notes & escalation section</li>
+        </ul>
+        <div class="resource-price">$7 <small>digital download</small></div>
+        <a class="btn btn-primary" href="#contact"
+           onclick="requestResource('Small Business SOP Template')">
+          Get This Template
+        </a>
+      </div>
+
+
+      <div class="card resource-card">
+        <div class="resource-top">
+          <div class="resource-icon">📊</div>
+          <span class="resource-type">SPREADSHEET</span>
+        </div>
+        <h3>Customer Follow-Up Tracker</h3>
+        <p>
+          A simple tracker for organizing leads, follow-ups, status,
+          notes, and next actions.
+        </p>
+        <ul class="resource-features">
+          <li>Customer/contact fields</li>
+          <li>Follow-up date</li>
+          <li>Status tracking</li>
+          <li>Next-action notes</li>
+        </ul>
+        <div class="resource-price">$5 <small>digital download</small></div>
+        <a class="btn btn-primary" href="#contact"
+           onclick="requestResource('Customer Follow-Up Tracker')">
+          Get This Template
+        </a>
+      </div>
+
+
+      <div class="card resource-card">
+        <div class="resource-top">
+          <div class="resource-icon">💼</div>
+          <span class="resource-type">VA TEMPLATE</span>
+        </div>
+        <h3>Virtual Assistant Daily Planner</h3>
+        <p>
+          Organize recurring tasks, priorities, deadlines, client requests,
+          and completed work in one place.
+        </p>
+        <ul class="resource-features">
+          <li>Daily task list</li>
+          <li>Priority tracking</li>
+          <li>Client requests</li>
+          <li>Completion notes</li>
+        </ul>
+        <div class="resource-price">$5 <small>digital download</small></div>
+        <a class="btn btn-primary" href="#contact"
+           onclick="requestResource('Virtual Assistant Daily Planner')">
+          Get This Template
+        </a>
+      </div>
+
+
+      <div class="card resource-card">
+        <div class="resource-top">
+          <div class="resource-icon">🎨</div>
+          <span class="resource-type">BUSINESS</span>
+        </div>
+        <h3>Digital Business Card Template</h3>
+        <p>
+          A simple professional contact-card layout designed for digital
+          sharing through email, WhatsApp, and social platforms.
+        </p>
+        <ul class="resource-features">
+          <li>Name & business details</li>
+          <li>Contact information</li>
+          <li>Service listing</li>
+          <li>Social/contact links</li>
+        </ul>
+        <div class="resource-price">$5 <small>digital download</small></div>
+        <a class="btn btn-primary" href="#contact"
+           onclick="requestResource('Digital Business Card Template')">
+          Get This Template
+        </a>
+      </div>
+
+    </div>
+
+    <div class="resources-banner">
+      <div>
+        <h3>Need a custom template instead?</h3>
+        <p>
+          I can create a customized SOP, spreadsheet, checklist, report,
+          or business document for your company.
+        </p>
+      </div>
+      <a class="btn btn-primary" href="#contact">Request Custom Work →</a>
+    </div>
+
+  </div>
+</section>
+
 <section class="soft" id="pricing">
   <div class="container">
 
@@ -907,6 +1186,13 @@
   });
 
   document.getElementById('year').textContent = new Date().getFullYear();
+
+
+  function requestResource(resourceName){
+    const message = document.getElementById('message');
+    message.value = 'I am interested in purchasing: ' + resourceName + '. Please send me the payment and download details.';
+    document.getElementById('service').value = 'Other';
+  }
 
   document.getElementById('contactForm').addEventListener('submit', function(e){
     e.preventDefault();
